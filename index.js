@@ -1,11 +1,15 @@
-let operators = {
+let operateFunctions = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
-  "x": (a, b) => a * b,
+  "*": (a, b) => a * b,
   "/": (a, b) => a / b,
 };
 
 let add = "+";
 let subtract = "-";
-let multiply = "x";
+let multiply = "*";
 let divide = "/";
+
+function operate(operator, num1, num2) {
+  return operateFunctions[operator](num1, num2);
+}
