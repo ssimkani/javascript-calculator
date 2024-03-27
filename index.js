@@ -17,34 +17,33 @@ let divide = "/";
 function operate(operator, num1, num2) {
   return operateFunctions[operator](num1, num2);
 }
-
-let clicked = false;
+let number1 = "";
+let number2 = "";
+let operator = "";
 let counter = 0;
 displayScreen.textContent = "";
-if (!clicked) {
-  numberButton.forEach((button) => {
-    button.addEventListener("click", () => {
-      let num = button.textContent;
-      displayScreen.textContent += num;
-    });
-  });
-}
 
-operatorButton.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    clicked = true;
-    counter += 1
-    let number1 = displayScreen.textContent;
-    displayScreen.textContent = "";
-    let operator = operatorButton.textContent;
+numberButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    let num = button.textContent;
+    displayScreen.textContent += num;
   });
 });
 
-if (clicked) {
-  numberButton.forEach((button) => {
-    button.addEventListener("click", () => {
-      let num = button.textContent;
-      displayScreen.textContent += num;
-    });
+operatorButton.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    counter += 1;
+    if (counter < 2) {
+      number1 = parseInt(displayScreen.textContent);
+      operator = btn.textContent;
+      displayScreen.textContent = "";
+    } else {
+      let number2 = parseInt(displayScreen.textContent);
+      displayScreen.textContent = String(operate(operator, number1, number2));
+      operator = btn.textContent;
+      number1 = parseInt(displayScreen.textContent);
+      counter = 1;
+      displayScreen.textContent = ""
+    }
   });
-}
+});
