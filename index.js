@@ -19,11 +19,12 @@ let subtract = "-";
 let multiply = "*";
 let divide = "/";
 
-function operate(operator, num1, num2) {
-  return operateFunctions[operator](num1, num2);
-}
-
 const round = (number) => number.toFixed(6);
+
+function operate(operator, num1, num2) {
+  let result = operateFunctions[operator](num1, num2);
+  return round(result);
+}
 
 let number1 = "";
 let number2 = "";
