@@ -3,6 +3,7 @@ const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
 const clear = document.querySelector("#clear");
+const positiveNegative = document.querySelector("#positive-negative");
 
 let operateFunctions = {
   "+": (a, b) => a + b,
@@ -32,6 +33,12 @@ clear.addEventListener("click", () => {
   operator = "";
   num = "";
   firstClickNum = false;
+});
+
+positiveNegative.addEventListener("click", () => {
+  num = parseFloat(displayScreen.textContent);
+  num *= -1;
+  displayScreen.textContent = num.toString();
 });
 
 numberButton.forEach((button) => {
