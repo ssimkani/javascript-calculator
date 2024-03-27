@@ -22,10 +22,17 @@ function operate(operator, num1, num2) {
 let number1 = "";
 let number2 = "";
 let operator = "";
-let num;
+let num = "";
 let firstClickNum = false;
 
-clear.addEventListener("click", () => (displayScreen.textContent = ""));
+clear.addEventListener("click", () => {
+  displayScreen.textContent = "";
+  number1 = "";
+  number2 = "";
+  operator = "";
+  num = "";
+  firstClickNum = false;
+});
 
 numberButton.forEach((button) => {
   button.addEventListener("click", () => {
@@ -36,6 +43,10 @@ numberButton.forEach((button) => {
       displayScreen.textContent += button.textContent;
     }
     num = displayScreen.textContent;
+
+    operatorButton.forEach((btn) => {
+      btn.disabled = false;
+    });
   });
 });
 
@@ -51,6 +62,11 @@ operatorButton.forEach((btn) => {
       } else {
         number1 = num;
       }
+      operatorButton.forEach((otherBtn) => {
+        if (otherBtn !== btn) {
+          otherBtn.disabled = true;
+        }
+      });
       firstClickNum = false;
       operator = btn.textContent;
     }
@@ -65,8 +81,6 @@ equal.addEventListener("click", () => {
         operate(operator, parseFloat(number1), parseFloat(number2))
       );
       operator = "";
-    } else {
-      displayScreen.textContent = num;
     }
   }
 });
