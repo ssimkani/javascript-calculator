@@ -21,7 +21,6 @@ let number1 = "";
 let number2 = "";
 let operator = "";
 let firstClickNum = false;
-let firstClickOperator = false;
 
 numberButton.forEach((button) => {
   button.addEventListener("click", () => {
@@ -37,18 +36,17 @@ numberButton.forEach((button) => {
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (firstClickNum) {
-      if (!firstClickOperator) {
-        number1 = displayScreen.textContent;
-      } else {
+      if (operator !== "") {
         number2 = displayScreen.textContent;
         displayScreen.textContent = String(
           operate(operator, parseFloat(number1), parseFloat(number2))
         );
         number1 = displayScreen.textContent;
+      } else {
+        number1 = displayScreen.textContent;
       }
-      firstClickOperator = true;
       firstClickNum = false;
-      operator = btn.textContent;
     }
+    operator = btn.textContent;
   });
 });
