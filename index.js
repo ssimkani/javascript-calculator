@@ -26,11 +26,10 @@ numberButton.forEach((button) => {
   button.addEventListener("click", () => {
     if (numButtonCounter === 0) {
       displayScreen.textContent = button.textContent;
-      numButtonCounter += 1;
     } else {
-      let num = button.textContent;
-      displayScreen.textContent += num;
+      displayScreen.textContent += button.textContent;
     }
+    numButtonCounter += 1;
   });
 });
 
@@ -38,18 +37,16 @@ operatorButton.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (numButtonCounter > 0) {
       if (operator !== "") {
-        operatorButton.disabled = true;
-        number2 = parseFloat(displayScreen.textContent);
-        displayScreen.textContent = String(operate(operator, number1, number2));
-        operator = btn.textContent;
-        number1 = parseInt(displayScreen.textContent);
-        numButtonCounter = 0;
+        number2 = displayScreen.textContent;
+        displayScreen.textContent = String(
+          operate(operator, parseFloat(number1), parseFloat(number2))
+        );
+        number1 = displayScreen.textContent;
       } else {
-        btn.disabled = true;
-        number1 = parseFloat(displayScreen.textContent);
-        operator = btn.textContent;
-        numButtonCounter = 0;
+        number1 = displayScreen.textContent;
       }
+      operator = btn.textContent;
+      numButtonCounter = 0;
     }
   });
 });
