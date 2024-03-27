@@ -1,6 +1,7 @@
 const displayScreen = document.querySelector("#screen");
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
+const equal = document.querySelector("#equal")
 
 let operateFunctions = {
   "+": (a, b) => a + b,
