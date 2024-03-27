@@ -4,8 +4,8 @@ const operatorButton = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
 const clear = document.querySelector("#clear");
 const positiveNegative = document.querySelector("#positive-negative");
-const percent = document.querySelector("#percent")
-const decimalPoint = document.querySelector("#decimal-point")
+const percent = document.querySelector("#percent");
+const decimalPoint = document.querySelector("#decimal-point");
 
 let operateFunctions = {
   "+": (a, b) => a + b,
@@ -35,6 +35,12 @@ clear.addEventListener("click", () => {
   operator = "";
   num = "";
   firstClickNum = false;
+});
+
+percent.addEventListener("click", () => {
+  num = parseFloat(displayScreen.textContent);
+  num /= 100;
+  displayScreen.textContent = num.toString();
 });
 
 positiveNegative.addEventListener("click", () => {
