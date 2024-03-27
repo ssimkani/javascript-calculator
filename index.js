@@ -2,7 +2,7 @@ const displayScreen = document.querySelector("#screen");
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
-const clear = document.querySelector("#clear")
+const clear = document.querySelector("#clear");
 
 let operateFunctions = {
   "+": (a, b) => a + b,
@@ -24,6 +24,8 @@ let number2 = "";
 let operator = "";
 let num;
 let firstClickNum = false;
+
+clear.addEventListener("click", () => (displayScreen.textContent = ""));
 
 numberButton.forEach((button) => {
   button.addEventListener("click", () => {
