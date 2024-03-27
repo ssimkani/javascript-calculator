@@ -19,11 +19,11 @@ let subtract = "-";
 let multiply = "*";
 let divide = "/";
 
-const round = (number) => number.toFixed(6);
+const round = (number) => parseFloat(number.toFixed(6));
 
 function operate(operator, num1, num2) {
   let result = operateFunctions[operator](num1, num2);
-  return round(result);
+  return String(round(result));
 }
 
 let number1 = "";
@@ -112,5 +112,6 @@ equal.addEventListener("click", () => {
     );
     operator = "";
     decimalPoint.disabled = false;
+    firstClickNum = false;
   }
 });
