@@ -1,7 +1,7 @@
 const displayScreen = document.querySelector("#screen");
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
-const equal = document.querySelector("#equal")
+const equal = document.querySelector("#equal");
 
 let operateFunctions = {
   "+": (a, b) => a + b,
@@ -21,6 +21,7 @@ function operate(operator, num1, num2) {
 let number1 = "";
 let number2 = "";
 let operator = "";
+let num;
 let firstClickNum = false;
 
 numberButton.forEach((button) => {
@@ -31,6 +32,7 @@ numberButton.forEach((button) => {
     } else {
       displayScreen.textContent += button.textContent;
     }
+    num = displayScreen.textContent;
   });
 });
 
@@ -38,16 +40,30 @@ operatorButton.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (firstClickNum) {
       if (operator !== "") {
-        number2 = displayScreen.textContent;
+        number2 = num;
         displayScreen.textContent = String(
           operate(operator, parseFloat(number1), parseFloat(number2))
         );
         number1 = displayScreen.textContent;
       } else {
-        number1 = displayScreen.textContent;
+        number1 = num;
       }
       firstClickNum = false;
+      operator = btn.textContent;
     }
-    operator = btn.textContent;
   });
+});
+
+equal.addEventListener("click", () => {
+  if (firstClickNum) {
+    if (operator !== "") {
+      number2 = num;
+      displayScreen.textContent = String(
+        operate(operator, parseFloat(number1), parseFloat(number2))
+      );
+      operator = "";
+    } else {
+      displayScreen.textContent = num;
+    }
+  }
 });
