@@ -20,33 +20,35 @@ function operate(operator, num1, num2) {
 let number1 = "";
 let number2 = "";
 let operator = "";
-let numButtonCounter = 0;
+let firstClickNum = false;
+let firstClickOperator = false;
 
 numberButton.forEach((button) => {
   button.addEventListener("click", () => {
-    if (numButtonCounter === 0) {
+    if (!firstClickNum) {
       displayScreen.textContent = button.textContent;
+      firstClickNum = true;
     } else {
       displayScreen.textContent += button.textContent;
     }
-    numButtonCounter += 1;
   });
 });
 
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (numButtonCounter > 0) {
-      if (operator !== "") {
+    if (firstClickNum) {
+      if (!firstClickOperator) {
+        number1 = displayScreen.textContent;
+      } else {
         number2 = displayScreen.textContent;
         displayScreen.textContent = String(
           operate(operator, parseFloat(number1), parseFloat(number2))
         );
         number1 = displayScreen.textContent;
-      } else {
-        number1 = displayScreen.textContent;
       }
+      firstClickOperator = true;
+      firstClickNum = false;
       operator = btn.textContent;
-      numButtonCounter = 0;
     }
   });
 });
