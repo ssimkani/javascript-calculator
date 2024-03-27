@@ -77,6 +77,7 @@ numberButton.forEach((button) => {
     operatorButton.forEach((btn) => {
       btn.disabled = false;
     });
+    decimalPoint.disabled = false;
   });
 });
 
@@ -85,6 +86,13 @@ operatorButton.forEach((btn) => {
     if (firstClickNum) {
       if (operator !== "") {
         number2 = num;
+        if (operator === "/" && parseFloat(number2) === 0) {
+          displayScreen.textContent = "Seriously?";
+          firstClickNum = false;
+          operator = btn.textContent;
+          decimalPoint.disabled = true;
+          return;
+        }
         displayScreen.textContent = String(
           operate(operator, parseFloat(number1), parseFloat(number2))
         );
@@ -107,6 +115,13 @@ operatorButton.forEach((btn) => {
 equal.addEventListener("click", () => {
   if (firstClickNum && operator !== "") {
     number2 = num;
+    if (operator === "/" && parseFloat(number2) === 0) {
+      displayScreen.textContent = "Seriously?";
+      operator = "";
+      decimalPoint.disabled = true;
+      firstClickNum = false;
+      return;
+    }
     displayScreen.textContent = String(
       operate(operator, parseFloat(number1), parseFloat(number2))
     );
