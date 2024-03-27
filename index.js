@@ -22,6 +22,9 @@ let divide = "/";
 function operate(operator, num1, num2) {
   return operateFunctions[operator](num1, num2);
 }
+
+const round = (number) => number.toFixed(6);
+
 let number1 = "";
 let number2 = "";
 let operator = "";
@@ -35,6 +38,11 @@ clear.addEventListener("click", () => {
   operator = "";
   num = "";
   firstClickNum = false;
+
+  operatorButton.forEach((btn) => {
+    btn.disabled = false;
+  });
+  decimalPoint.disabled = false;
 });
 
 percent.addEventListener("click", () => {
@@ -47,6 +55,12 @@ positiveNegative.addEventListener("click", () => {
   num = parseFloat(displayScreen.textContent);
   num *= -1;
   displayScreen.textContent = num.toString();
+});
+
+decimalPoint.addEventListener("click", () => {
+  displayScreen.textContent = displayScreen.textContent.concat(".");
+  num = displayScreen.textContent;
+  decimalPoint.disabled = true;
 });
 
 numberButton.forEach((button) => {
@@ -84,18 +98,18 @@ operatorButton.forEach((btn) => {
       });
       firstClickNum = false;
       operator = btn.textContent;
+      decimalPoint.disabled = true;
     }
   });
 });
 
 equal.addEventListener("click", () => {
-  if (firstClickNum) {
-    if (operator !== "") {
-      number2 = num;
-      displayScreen.textContent = String(
-        operate(operator, parseFloat(number1), parseFloat(number2))
-      );
-      operator = "";
-    }
+  if (firstClickNum && operator !== "") {
+    number2 = num;
+    displayScreen.textContent = String(
+      operate(operator, parseFloat(number1), parseFloat(number2))
+    );
+    operator = "";
+    decimalPoint.disabled = false;
   }
 });
