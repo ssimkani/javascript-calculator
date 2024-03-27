@@ -4,6 +4,8 @@ const operatorButton = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
 const clear = document.querySelector("#clear");
 const positiveNegative = document.querySelector("#positive-negative");
+const percent = document.querySelector("#percent")
+const decimalPoint = document.querySelector("#decimal-point")
 
 let operateFunctions = {
   "+": (a, b) => a + b,
