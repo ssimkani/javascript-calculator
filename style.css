@@ -21,3 +21,24 @@ body {
   background-color: white;
   border-radius: 10px;
 }
+
+
+.top-buttons {
+    display: flex;
+}
+
+.divide-buttons {
+    display: flex;
+}
+
+.multiply-buttons {
+    display: flex;
+}
+
+.subtract-buttons {
+    display: flex;
+}
+
+.add-buttons {
+    display: flex;
+}
