@@ -19,7 +19,7 @@ let subtract = "-";
 let multiply = "*";
 let divide = "/";
 
-const maxChar = 6;
+const maxChar = 13;
 
 const round = (number) => parseFloat(number.toFixed(6));
 

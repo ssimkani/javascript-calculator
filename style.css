@@ -4,6 +4,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: beige;
 }
 
 .calculator {
@@ -24,7 +25,7 @@ body {
   font-size: 50px;
   height: 70px;
   padding: 5px;
-  background-color: rgb(235, 234, 234);
+  background-color: #f4f4e6;
   border-radius: 10px;
 }
 .all-buttons {
