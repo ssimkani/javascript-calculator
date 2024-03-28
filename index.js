@@ -19,6 +19,8 @@ let subtract = "-";
 let multiply = "*";
 let divide = "/";
 
+const maxChar = 6;
+
 const round = (number) => parseFloat(number.toFixed(6));
 
 function operate(operator, num1, num2) {
@@ -71,6 +73,9 @@ numberButton.forEach((button) => {
       firstClickNum = true;
     } else {
       displayScreen.textContent += button.textContent;
+      if (displayScreen.textContent.length > maxChar) {
+        displayScreen.textContent = displayScreen.textContent.slice(0, maxChar)
+      }
     }
     num = displayScreen.textContent;
 
