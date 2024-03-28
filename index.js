@@ -45,7 +45,7 @@ clear.addEventListener("click", () => {
   operatorButton.forEach((btn) => {
     btn.disabled = false;
   });
-  decimalPoint.disabled = false;
+  decimalPoint.disabled = true;
 });
 
 percent.addEventListener("click", () => {
@@ -71,10 +71,11 @@ numberButton.forEach((button) => {
     if (!firstClickNum) {
       displayScreen.textContent = button.textContent;
       firstClickNum = true;
+      decimalPoint.disabled = false;
     } else {
       displayScreen.textContent += button.textContent;
       if (displayScreen.textContent.length > maxChar) {
-        displayScreen.textContent = displayScreen.textContent.slice(0, maxChar)
+        displayScreen.textContent = displayScreen.textContent.slice(0, maxChar);
       }
     }
     num = displayScreen.textContent;
@@ -82,7 +83,7 @@ numberButton.forEach((button) => {
     operatorButton.forEach((btn) => {
       btn.disabled = false;
     });
-    decimalPoint.disabled = false;
+
   });
 });
 
@@ -101,6 +102,7 @@ operatorButton.forEach((btn) => {
         displayScreen.textContent = String(
           operate(operator, parseFloat(number1), parseFloat(number2))
         );
+        decimalPoint.disabled = true;
         number1 = displayScreen.textContent;
       } else {
         number1 = num;
@@ -112,7 +114,7 @@ operatorButton.forEach((btn) => {
       });
       firstClickNum = false;
       operator = btn.textContent;
-      decimalPoint.disabled = true;
+
     }
   });
 });
@@ -131,7 +133,7 @@ equal.addEventListener("click", () => {
       operate(operator, parseFloat(number1), parseFloat(number2))
     );
     operator = "";
-    decimalPoint.disabled = false;
+    decimalPoint.disabled = true;
     firstClickNum = false;
   }
 });
