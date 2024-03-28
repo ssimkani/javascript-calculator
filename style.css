@@ -9,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-style: solid;
   border-radius: 7px;
   padding: 10px;
   background-color: grey;
@@ -21,24 +20,46 @@ body {
   background-color: white;
   border-radius: 10px;
 }
-
-
-.top-buttons {
+.all-buttons {
     display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.top-buttons {
+  display: flex;
+  gap: 2px;
 }
 
 .divide-buttons {
-    display: flex;
+  display: flex;
+  gap: 2px;
 }
 
 .multiply-buttons {
-    display: flex;
+  display: flex;
+  gap: 2px;
 }
 
 .subtract-buttons {
-    display: flex;
+  display: flex;
+  gap: 2px;
 }
 
 .add-buttons {
-    display: flex;
+  display: flex;
+  gap: 2px;
+}
+
+button {
+    border-radius: 5px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: white;
+  background-color: #525a5e;
+  cursor: pointer;
+}
+
+#decimal-point, #equal, .operator {
+    background-color: #8c969c;
 }
