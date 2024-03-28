@@ -33,6 +33,7 @@ let number2 = "";
 let operator = "";
 let num = "";
 let firstClickNum = false;
+let calculationDone = false;
 
 clear.addEventListener("click", () => {
   displayScreen.textContent = "0";
@@ -41,9 +42,11 @@ clear.addEventListener("click", () => {
   operator = "";
   num = "";
   firstClickNum = false;
+  calculationDone = false;
 
   operatorButton.forEach((btn) => {
     btn.disabled = false;
+    btn.style.opacity = "1";
   });
   decimalPoint.disabled = true;
 });
@@ -89,7 +92,7 @@ numberButton.forEach((button) => {
 
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (firstClickNum) {
+    if (firstClickNum || calculationDone) {
       if (operator !== "") {
         number2 = num;
         if (operator === "/" && parseFloat(number2) === 0) {
@@ -132,8 +135,9 @@ equal.addEventListener("click", () => {
     displayScreen.textContent = String(
       operate(operator, parseFloat(number1), parseFloat(number2))
     );
-    operator = "";
+    // operator = "";
     decimalPoint.disabled = true;
+    calculationDone = true;
     firstClickNum = false;
   }
 });
