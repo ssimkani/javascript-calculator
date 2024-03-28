@@ -21,7 +21,7 @@ let divide = "/";
 
 const maxChar = 13;
 
-const round = (number) => parseFloat(number.toFixed(6));
+const round = (number) => parseFloat(number.toFixed(11));
 
 function operate(operator, num1, num2) {
   let result = operateFunctions[operator](num1, num2);
