@@ -12,6 +12,8 @@ body {
   border-radius: 7px;
   padding: 10px;
   background-color: grey;
+  height: calc(1.5 * 400px);
+  width:400px
 }
 
 #screen {
