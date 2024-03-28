@@ -46,7 +46,6 @@ clear.addEventListener("click", () => {
 
   operatorButton.forEach((btn) => {
     btn.disabled = false;
-    btn.style.opacity = "1";
   });
   decimalPoint.disabled = true;
 });
@@ -85,7 +84,6 @@ numberButton.forEach((button) => {
 
     operatorButton.forEach((btn) => {
       btn.disabled = false;
-      btn.style.opacity = "1";
     });
   });
 });
@@ -113,7 +111,6 @@ operatorButton.forEach((btn) => {
       operatorButton.forEach((otherBtn) => {
         if (otherBtn !== btn) {
           otherBtn.disabled = true;
-          btn.style.opacity = "0.5";
         }
       });
       firstClickNum = false;
@@ -135,7 +132,6 @@ equal.addEventListener("click", () => {
     displayScreen.textContent = String(
       operate(operator, parseFloat(number1), parseFloat(number2))
     );
-    // operator = "";
     decimalPoint.disabled = true;
     calculationDone = true;
     firstClickNum = false;
