@@ -6,7 +6,18 @@ body {
 }
 
 .calculator {
-    border-style: solid;
-    border-radius: 7px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-style: solid;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: grey;
+}
+
+#screen {
+  height: 25px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
 }
