@@ -8,52 +8,56 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   border-radius: 7px;
   padding: 10px;
   background-color: grey;
   height: calc(1.5 * 400px);
-  width:400px
+  width: 400px;
 }
 
 #screen {
-  height: 25px;
+  font-size: 50px;
+  height: 70px;
   padding: 5px;
   background-color: white;
   border-radius: 10px;
 }
 .all-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .top-buttons {
   display: flex;
-  gap: 2px;
+  gap: 5px;
 }
 
 .divide-buttons {
   display: flex;
-  gap: 2px;
+  gap: 5px;
 }
 
 .multiply-buttons {
   display: flex;
-  gap: 2px;
+  gap: 5px;
 }
 
 .subtract-buttons {
   display: flex;
-  gap: 2px;
+  gap: 5px;
 }
 
 .add-buttons {
   display: flex;
-  gap: 2px;
+  gap: 5px;
 }
 
 button {
-    border-radius: 5px;
+  font-size: 30px;
+  flex: 1;
+  height: calc(30px * 3);
+  border-radius: 5px;
   border: none;
   box-shadow: none;
   outline: none;
@@ -62,6 +66,8 @@ button {
   cursor: pointer;
 }
 
-#decimal-point, #equal, .operator {
-    background-color: #8c969c;
+#decimal-point,
+#equal,
+.operator {
+  background-color: #8c969c;
 }
