@@ -82,8 +82,8 @@ numberButton.forEach((button) => {
 
     operatorButton.forEach((btn) => {
       btn.disabled = false;
+      btn.style.opacity = "1";
     });
-
   });
 });
 
@@ -110,11 +110,11 @@ operatorButton.forEach((btn) => {
       operatorButton.forEach((otherBtn) => {
         if (otherBtn !== btn) {
           otherBtn.disabled = true;
+          btn.style.opacity = "0.5";
         }
       });
       firstClickNum = false;
       operator = btn.textContent;
-
     }
   });
 });
