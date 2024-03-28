@@ -69,6 +69,10 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  opacity: 60%;
+}
+
 #decimal-point,
 #equal,
 .operator {
