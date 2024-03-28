@@ -33,7 +33,7 @@ let num = "";
 let firstClickNum = false;
 
 clear.addEventListener("click", () => {
-  displayScreen.textContent = "";
+  displayScreen.textContent = "0";
   number1 = "";
   number2 = "";
   operator = "";
